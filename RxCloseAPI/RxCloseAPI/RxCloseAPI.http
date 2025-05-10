@@ -1,0 +1,6 @@
+@RxCloseAPI_HostAddress = http://localhost:5258
+
+GET {{RxCloseAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

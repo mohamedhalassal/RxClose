@@ -1,0 +1,18 @@
+# Ignore Visual Studio folder
+.vs/
+*.user
+*.suo
+
+# Build results
+bin/
+obj/
+
+# ASP.NET secrets
+**/secrets.json
+
+# Local history
+*.log
+
+# Others
+*.db
+*.DS_Store

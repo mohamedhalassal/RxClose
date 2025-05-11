@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RxCloseAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d0473d7736a547a10c3ef491b6b835ed11c276b8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c76cb21f60fbb131963d1a05648a69270911d0b5")]
 [assembly: System.Reflection.AssemblyProductAttribute("RxCloseAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RxCloseAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

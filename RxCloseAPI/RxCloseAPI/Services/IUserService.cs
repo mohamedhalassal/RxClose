@@ -4,5 +4,6 @@
     {
         IEnumerable<User> GetAll();
         User? Get(int id);
+        User Add(User user);
     }
 }

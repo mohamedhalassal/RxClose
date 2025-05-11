@@ -1,4 +1,6 @@
 ﻿
+using System.Diagnostics.Tracing;
+
 namespace RxCloseAPI.Controllers;
 
 
@@ -21,4 +23,13 @@ public class UsersController(IUserService userService) : ControllerBase
 
         return user is null ? NotFound() : Ok(user);
     }
+
+    [HttpPost("")]
+    public IActionResult Add(User request)
+    {
+        var newUser = _userService.Add(request);
+
+        return CreatedAtAction(nameof(Get), new {id=newUser.Id},newUser);
+    }
+
 }

@@ -1,4 +1,5 @@
 ﻿
+using RxCloseAPI.Models;
 using System.Diagnostics.Tracing;
 
 namespace RxCloseAPI.Services
@@ -43,6 +44,17 @@ namespace RxCloseAPI.Services
             currentUser.Password = user.Password;
             currentUser.Email = user.Email;
             currentUser.Location = user.Location;
+            return true;
+        }
+
+        public bool Delete(int id)
+        {
+            var User = Get(id);
+
+            if (User is null)
+                return false;
+
+            _users.Remove(User);
             return true;
         }
     }

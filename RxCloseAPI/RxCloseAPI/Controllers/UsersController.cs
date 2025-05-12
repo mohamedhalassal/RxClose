@@ -29,17 +29,30 @@ public class UsersController(IUserService userService) : ControllerBase
     {
         var newUser = _userService.Add(request);
 
-        return CreatedAtAction(nameof(Get), new {id=newUser.Id},newUser);
+        return CreatedAtAction(nameof(Get), new { id = newUser.Id }, newUser);
     }
 
     [HttpPut("{id}")]
 
-    public IActionResult Update(int id,User request)
+    public IActionResult Update(int id, User request)
     {
-       var isUpdated= _userService.Update(id, request);
+        var isUpdated = _userService.Update(id, request);
 
         if (!isUpdated)
             return NotFound();
+
+        return NoContent();
+    }
+
+    [HttpDelete("{id}")]
+
+    public IActionResult Delete(int id)
+    {
+        var isDeleted = _userService.Delete(id);
+
+        if (!isDeleted)
+            return NotFound();
+
         return NoContent();
     }
 }

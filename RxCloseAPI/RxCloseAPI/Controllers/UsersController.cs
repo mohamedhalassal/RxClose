@@ -32,4 +32,14 @@ public class UsersController(IUserService userService) : ControllerBase
         return CreatedAtAction(nameof(Get), new {id=newUser.Id},newUser);
     }
 
+    [HttpPut("{id}")]
+
+    public IActionResult Update(int id,User request)
+    {
+       var isUpdated= _userService.Update(id, request);
+
+        if (!isUpdated)
+            return NotFound();
+        return NoContent();
+    }
 }

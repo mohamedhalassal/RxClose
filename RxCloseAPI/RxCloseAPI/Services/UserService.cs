@@ -30,5 +30,20 @@ namespace RxCloseAPI.Services
             _users.Add(user);
             return user;
         }
+
+        public bool Update(int id, User user)
+        {
+            var currentUser = Get(id);
+
+            if (currentUser is null)
+                return false;
+
+            currentUser.PhoneNumber = user.PhoneNumber;
+            currentUser.Name = user.Name;
+            currentUser.Password = user.Password;
+            currentUser.Email = user.Email;
+            currentUser.Location = user.Location;
+            return true;
+        }
     }
 }

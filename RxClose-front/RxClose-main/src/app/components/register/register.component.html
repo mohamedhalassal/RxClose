@@ -1,0 +1,47 @@
+<div class="con">
+  <div class="parent">
+    <div class="signup-container">
+      <div class="left-section">
+        <div class="blur"></div>
+        <div class="img-content d-flex justify-content-center align-items-center flex-column px-5">
+          <h2>Hello friend!</h2>
+          <p class="px-4">Please provide the information register you account</p>
+          <p class="pt-5">New here ? create a new account</p>
+          <button routerLink="/signin" class="text-decoration-none btn  mt-5 px-4">Sign in</button>
+        </div>
+        <img style="height: 100%;" src="assets/images/login.jpeg" alt="Signin Image"  class="object-fit-cover"/>
+      </div>
+      <div class="right-section">
+        <h2>Register a new account</h2>
+        <div class="social-buttons">
+          <button><i class="fab fa-google"></i></button>
+          <button><i class="fab fa-x-twitter"></i></button>
+          <button><i class="fab fa-github"></i></button>
+          <button><i class="fab fa-facebook"></i> </button>
+        </div>
+        <p>or register with your email id</p>
+        <form>
+          <div class="input-container">
+            <i class="fas fa-envelope"></i>
+            <input type="email" placeholder="Email" required />
+          </div>
+          <div class="input-container">
+            <i class="fas fa-user"></i>
+            <input type="text" placeholder="User Name" required />
+          </div>
+          <div class="input-container">
+            <i class="fas fa-envelope"></i>
+            <input type="email" placeholder="Email" required />
+          </div>
+          <div class="input-container">
+            <i class="fas fa-lock"></i>
+            <input type="password" placeholder="Password" required />
+          </div>
+          <button type="submit" class="py-2 mt-3">Sign Up</button>
+        </form>
+        <p>Already have an account?<a routerLink="/signin">Sign in</a></p>
+        
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+
+.container {
+  background-color: #dfe4e7;
+  
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+.navbar-brand img {
+  height: 50px; /* حجم اللوجو */
+  margin-right: 10px;
+}
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}

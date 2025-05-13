@@ -1,0 +1,30 @@
+.bg-color {
+  background-color: #429BCB;
+}
+
+.color {
+  color: #429BCB;
+}
+
+.px-2 {
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+}
+
+.px-2:hover {
+  color: #429BCB;
+}
+
+.active-link {
+  color: #429BCB;
+}
+
+.user-profile-image {
+  width: 40px;
+  height: 40px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  cursor: pointer;
+  border: 2px solid #fff;
+}/*# sourceMappingURL=nav-blank.component.css.map */

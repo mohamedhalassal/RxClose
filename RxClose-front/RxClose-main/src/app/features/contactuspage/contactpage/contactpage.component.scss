@@ -1,0 +1,173 @@
+.contact-section {
+  display: flex;
+  justify-content: center;
+  padding: 3rem 1rem;
+
+  .contact-info {
+    h2 {
+      font-weight: bold;
+    }
+
+    p {
+      color: #555;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: center;
+      margin: 1rem 0;
+
+      .icon {
+        width: 50px;
+        height: 50px;
+        background-color: #145276  ;
+
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        font-size: 1.5rem;
+        margin-right: 10px;
+      }
+
+      span {
+        font-weight: bold;
+      }
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 10px;
+
+      svg {
+        width: 40px;
+        height: 40px;
+        background-color:#145276;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: 0.3s;
+        padding: 6px;
+
+        &:hover {
+          background-color: #345573;
+        }
+      }
+    }
+  }
+
+  .contact-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+
+    h2 {
+      font-weight:600;
+    }
+
+    .form-label {
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 30px;
+      color: #9C9A9A;
+    }
+
+    .form-control {
+      box-sizing: border-box;
+      background: #FFFFFF;
+      border: 1px solid #9C9A9A;
+      border-radius: 15px;
+      padding: 15px;
+    }
+
+    .submit-btn {
+      background-color: #145276;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 20px;
+      border: none;
+      transition: 0.3s;
+      font-weight: bold;
+
+      &:hover {
+        background-color: #345573;
+      }
+    }
+  }
+}
+.chat-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  
+  .map-frame {
+    width: 100%;
+    height: 80%;
+    border: none;
+  }
+
+  .chat-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    min-width: 300px;
+
+    h3 {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .message-input {
+      padding: 40px;
+      border-radius: 10px;
+      width: 100%;
+      font-size: 1rem;
+      border: 0px;
+    }
+    .new-message-btn {
+      background: #e0e0e0;
+      border: none;
+      border-radius: 20px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      &:hover {
+        background: #d0d0d0;
+      }
+    }
+  }
+}
+
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+}
+.background{
+  background-image: url('/assets/images/cropped-view-woman-holding-handset-blue-background_1188894-13523.avif');
+
+  
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 75vh;
+  align-content: center;
+
+}

@@ -1,0 +1,87 @@
+<div class="product-details-container p-4">
+  <div class="container">
+    <div class="row">
+      <!-- Product Image -->
+      <div class="col-md-4">
+        <div class="product-image">
+          <img src="assets/images/img7.jpeg" class="img-fluid" alt="Product Image">
+          <button class="share-btn">
+            <i class="fas fa-share-alt"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Product Information -->
+      <div class="col-md-8">
+        <h2 class="product-title">{{product.name}}</h2>
+        <p class="description">{{product.description}}</p>
+        
+        <div class="status-info">
+          <span class="stock-status" *ngIf="product.inStock">In stock</span>
+          <span class="product-code">RXClos Code: {{product.code}}</span>
+        </div>
+
+        <div class="price mt-3">
+          <h3>EGP {{product.price}}</h3>
+        </div>
+
+        <div class="quantity-selector mt-4">
+          <label>Quantity:</label>
+          <div class="d-flex align-items-center gap-2">
+            <button class="btn btn-outline-secondary" (click)="decreaseQuantity()">-</button>
+            <span class="quantity">{{product.quantity}}</span>
+            <button class="btn btn-outline-secondary" (click)="increaseQuantity()">+</button>
+          </div>
+        </div>
+
+        <div class="actions mt-4">
+          <button class="btn btn-primary me-3">Add to Cart +</button>
+          <button class="btn btn-secondary">BUY NOW</button>
+        </div>
+
+        <!-- You May Also Like Section -->
+        <div class="related-products mt-5">
+          <div class="container position-relative">
+            <h3 class="mb-4">YOU MAY ALSO LIKE</h3>
+            
+            <!-- Customer Reviews -->
+            <div class="customer-reviews mb-4 p-3 border">
+              <h4 class="text-center">Customer Reviews</h4>
+              <div class="stars text-center mb-2">
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star text-warning"></i>
+              </div>
+              <p class="text-center mb-0">Be the first to write a review</p>
+            </div>
+
+            <!-- Related Products with Navigation Arrows -->
+            <button class="nav-arrow prev" (click)="scrollLeft()" (mouseenter)="stopAutoScroll()" (mouseleave)="startAutoScroll()">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            
+            <button class="nav-arrow next" (click)="scrollRight()" (mouseenter)="stopAutoScroll()" (mouseleave)="startAutoScroll()">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+
+            <div class="row">
+              <div class="col-12">
+                <div class="related-products-slider d-flex gap-3 overflow-hidden">
+                  @for (product of relatedProducts; track $index) {
+                    <div class="product-card" style="min-width: 200px;" 
+                         (mouseenter)="stopAutoScroll()" 
+                         (mouseleave)="startAutoScroll()">
+                      <div class="image-container rounded-circle overflow-hidden mb-3" style="width: 150px; height: 150px; margin: auto;">
+                        <img [src]="product.image" [alt]="product.name" class="img-fluid">
+                      </div>
+                      <h5 class="text-center">{{product.name}}</h5>
+                      <p class="text-center text-muted small">{{product.description}}</p>
+                    </div>
+                  }
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>

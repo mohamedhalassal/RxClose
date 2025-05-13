@@ -1,7 +1,4 @@
-﻿
-using System.Diagnostics.Tracing;
-
-namespace RxCloseAPI.Controllers;
+﻿namespace RxCloseAPI.Controllers;
 
 
 [Route("api/[controller]")]
@@ -17,7 +14,7 @@ public class UsersController(IUserService userService) : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public IActionResult Get(int id)
+    public IActionResult Get([FromRoute]int id)
     {
         var user = _userService.Get(id);
 
@@ -25,7 +22,7 @@ public class UsersController(IUserService userService) : ControllerBase
     }
 
     [HttpPost("")]
-    public IActionResult Add(User request)
+    public IActionResult Add([FromBody] User request)
     {
         var newUser = _userService.Add(request);
 
@@ -34,7 +31,7 @@ public class UsersController(IUserService userService) : ControllerBase
 
     [HttpPut("{id}")]
 
-    public IActionResult Update(int id, User request)
+    public IActionResult Update([FromRoute] int id, [FromBody] User request)
     {
         var isUpdated = _userService.Update(id, request);
 
@@ -46,7 +43,7 @@ public class UsersController(IUserService userService) : ControllerBase
 
     [HttpDelete("{id}")]
 
-    public IActionResult Delete(int id)
+    public IActionResult Delete([FromRoute] int id)
     {
         var isDeleted = _userService.Delete(id);
 

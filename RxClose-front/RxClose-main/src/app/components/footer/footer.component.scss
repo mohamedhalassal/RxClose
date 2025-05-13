@@ -1,0 +1,16 @@
+.footer {
+  background: #0d2e41;
+  
+  color: white;
+}
+
+.footer a.footer-link {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer a.footer-link:hover {
+  color: #ffc107; /* لون ذهبي عند المرور */
+  text-decoration: underline;
+}

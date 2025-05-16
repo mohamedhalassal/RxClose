@@ -1,4 +1,6 @@
-﻿namespace RxCloseAPI.Controllers;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
+
+namespace RxCloseAPI.Controllers;
 
 
 [Route("api/[controller]")]
@@ -10,7 +12,11 @@ public class UsersController(IUserService userService) : ControllerBase
     [HttpGet("")]
     public IActionResult GetAll()
     {
-        return Ok(_userService.GetAll());
+        var users = _userService.GetAll();
+
+        var response = users.Adapt<IEnumerable<UserResponse>>();
+
+        return Ok(response);
     }
 
     [HttpGet("{id}")]
@@ -18,22 +24,27 @@ public class UsersController(IUserService userService) : ControllerBase
     {
         var user = _userService.Get(id);
 
-        return user is null ? NotFound() : Ok(user);
+        if (user is null)
+            return NotFound();
+
+        var response = user.Adapt<UserResponse>();
+
+        return Ok(response);
     }
 
     [HttpPost("")]
-    public IActionResult Add([FromBody] User request)
+    public IActionResult Add([FromBody] CreatUserRequest request)
     {
-        var newUser = _userService.Add(request);
+        var newUser = _userService.Add(request.Adapt<User>());
 
         return CreatedAtAction(nameof(Get), new { id = newUser.Id }, newUser);
     }
 
     [HttpPut("{id}")]
 
-    public IActionResult Update([FromRoute] int id, [FromBody] User request)
+    public IActionResult Update([FromRoute] int id, [FromBody] CreatUserRequest request)
     {
-        var isUpdated = _userService.Update(id, request);
+        var isUpdated = _userService.Update(id,request.Adapt<User>());
 
         if (!isUpdated)
             return NotFound();

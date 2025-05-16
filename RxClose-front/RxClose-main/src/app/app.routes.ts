@@ -12,14 +12,19 @@ import { CaregorylistComponent } from './features/category/caregorylist/caregory
 import { ConvertAiComponent } from './features/ai/convert-ai/convert-ai.component';
 import { ProductDetailsComponent } from './features/product-details/product-details.component';
 
+
+
+import { ProfileComponent } from './profile/profile.component';
+
 export const routes: Routes = [
-
-
   { path: '', redirectTo: 'auth/home', pathMatch: 'full' },
   { path: 'signin', component: LoginComponent },
   { path: 'signup', component: RegisterComponent },
+  
   {
-    path: 'auth', component: AuthLayoutComponent, children: [
+    path: 'auth',
+    component: AuthLayoutComponent,
+    children: [
       { path: 'home', component: HomeComponent },
       { path: 'search', component: MostsearchListComponent },
       { path: 'Contactus', component: ContactpageComponent },
@@ -32,14 +37,14 @@ export const routes: Routes = [
         { path: 'organic', component: CaregorylistComponent },
         { path: 'home-care', component: CaregorylistComponent },
       ]},
-      {path: "product-details", component: ProductDetailsComponent},
+      { path: 'product-details', component: ProductDetailsComponent },
       { path: 'convert', component: ConvertAiComponent },
-    ]
-  },
-  {
-    path: 'blank', component: BlankLayoutComponent, children: [
 
+      // ✅ أهو هنا بنضيف البروفايل
+      { path: 'profile', component: ProfileComponent },
     ]
   },
+
+  { path: 'blank', component: BlankLayoutComponent, children: [] },
   { path: '**', component: NotfoundComponent }
 ];

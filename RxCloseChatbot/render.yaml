@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: chatbot-api
+    env: python
+    buildCommand: ""
+    startCommand: "python app.py"
+    envVars:
+      - key: PINECONE_API_KEY
+        value: pcsk_29YpbD_SHWVCkHpPQMnuto42uEqyduYCM2D3SeUNV5guDWeMNrj71rZMASqzNr26EvisMJ
+      - key: GEMINI_API_KEY
+        value: AIzaSyDD-JCNt-B99ZgKHGIc0ET-z5D8tCt3t6E

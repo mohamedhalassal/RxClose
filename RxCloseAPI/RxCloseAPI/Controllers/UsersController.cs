@@ -8,11 +8,11 @@ namespace RxCloseAPI.Controllers;
 public class UsersController(IUserService userService) : ControllerBase
 {
     private readonly IUserService _userService = userService;
-
+     
     [HttpGet("")]
-    public IActionResult GetAll()
+    public async Task<IActionResult> GetAll(CancellationToken cancellationToken)
     {
-        var users = _userService.GetAll();
+        var users =await _userService.GetAllAsync(cancellationToken);
 
         var response = users.Adapt<IEnumerable<UserResponse>>();
 
@@ -20,9 +20,9 @@ public class UsersController(IUserService userService) : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public IActionResult Get([FromRoute]int id)
+    public async Task<IActionResult> Get([FromRoute] int id, CancellationToken cancellationToken)
     {
-        var user = _userService.Get(id);
+        var user =await _userService.GetAsync(id, cancellationToken);
 
         if (user is null)
             return NotFound();
@@ -33,30 +33,32 @@ public class UsersController(IUserService userService) : ControllerBase
     }
 
     [HttpPost("")]
-    public IActionResult Add([FromBody] CreatUserRequest request)
+    public async Task<IActionResult> Add([FromBody] UserRequest request,
+        CancellationToken cancellationToken)
     {
-        var newUser = _userService.Add(request.Adapt<User>());
+        var newUser =await _userService.AddAsync(request.Adapt<User>(), cancellationToken);
 
         return CreatedAtAction(nameof(Get), new { id = newUser.Id }, newUser);
     }
 
     [HttpPut("{id}")]
 
-    public IActionResult Update([FromRoute] int id, [FromBody] CreatUserRequest request)
+    public async Task<IActionResult> Update([FromRoute] int id, [FromBody] UserRequest request
+        , CancellationToken cancellationToken)
     {
-        var isUpdated = _userService.Update(id,request.Adapt<User>());
+        var isUpdated = await _userService.UpdateAsync(id, request.Adapt<User>(), cancellationToken);
 
         if (!isUpdated)
             return NotFound();
 
-        return NoContent();
+        return NoContent(); 
     }
 
     [HttpDelete("{id}")]
 
-    public IActionResult Delete([FromRoute] int id)
+    public async Task<IActionResult> Delete([FromRoute] int id, CancellationToken cancellationToken)
     {
-        var isDeleted = _userService.Delete(id);
+        var isDeleted =await _userService.DeleteAsync(id, cancellationToken);
 
         if (!isDeleted)
             return NotFound();

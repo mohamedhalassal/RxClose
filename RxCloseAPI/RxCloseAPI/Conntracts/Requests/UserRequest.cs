@@ -1,5 +1,5 @@
 ﻿namespace RxCloseAPI.Conntracts.Requests;
-public record CreatUserRequest(
+public record UserRequest(
         int PhoneNumber,
         string Name,
         string UserName,

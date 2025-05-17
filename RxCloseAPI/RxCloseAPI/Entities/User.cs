@@ -1,8 +1,6 @@
-﻿using RxCloseAPI.Conntracts.Responses;
+﻿namespace RxCloseAPI.Entities;
 
-namespace RxCloseAPI.Models;
-
-public class User
+public sealed class User
 {
     public int Id { get; set; }
     public int PhoneNumber { get; set; }

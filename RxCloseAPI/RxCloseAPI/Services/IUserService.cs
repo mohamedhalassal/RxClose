@@ -2,12 +2,12 @@
 {
     public interface IUserService
     {
-        IEnumerable<User> GetAll();
-        User? Get(int id);
-        User Add(User user);
+        Task<IEnumerable<User>> GetAllAsync(CancellationToken cancellationToken = default);
+        Task<User?> GetAsync(int id, CancellationToken cancellationToken = default);
+        Task<User> AddAsync(User user, CancellationToken cancellationToken=default);
 
-        bool Update(int id, User user);
+        Task<bool> UpdateAsync(int id, User user, CancellationToken cancellationToken = default);
 
-        bool Delete(int id);
+        Task<bool> DeleteAsync(int id, CancellationToken cancellationToken = default);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using MapsterMapper;
+using RxCloseAPI.Persistence;
 using SharpGrip.FluentValidation.AutoValidation.Mvc.Extensions;
 using System.Reflection;
 
@@ -6,10 +7,16 @@ namespace RxCloseAPI;
 
 public static class DependencyInjection
 {
-    public static IServiceCollection AddDependencies(this IServiceCollection services)
+    public static IServiceCollection AddDependencies(this IServiceCollection services,
+        IConfiguration configuration)
     {
         services.AddControllers();
 
+        var connectionString = configuration.GetConnectionString("DefultConnection") ??
+             throw new InvalidOperationException("Connection string 'DefultConnection' not found.");
+
+        services.AddDbContext<RxCloseDbContext>(options =>
+          options.UseSqlServer(connectionString));
 
         services
             .AddSwaggerSerices()

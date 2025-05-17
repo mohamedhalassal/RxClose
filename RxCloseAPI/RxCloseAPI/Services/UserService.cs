@@ -1,61 +1,52 @@
 ﻿
-using RxCloseAPI.Models;
-using System.Diagnostics.Tracing;
+using System.Threading;
 
-namespace RxCloseAPI.Services
+namespace RxCloseAPI.Services;
+
+public class UserService(RxCloseDbContext context) : IUserService
 {
-    public class UserService : IUserService
+    private readonly RxCloseDbContext _context = context;
+    public async Task<IEnumerable<User>> GetAllAsync(CancellationToken cancellationToken = default) => 
+        await _context.users.AsNoTracking().ToListAsync(cancellationToken);
+
+    public async Task<User?> GetAsync(int id, CancellationToken cancellationToken = default) =>
+       await _context.users.FindAsync(id, cancellationToken);
+
+    public async Task<User> AddAsync(User user, CancellationToken cancellationToken = default)
     {
-        private static readonly List<User> _users = [
-     new User {
-          Id=1,
-          PhoneNumber=100,
-          Name="Name1",
-          Password="123",
-          Email="mo@gmail.com",
-          Location="Assiut"
-      }
-   ];
-        public IEnumerable<User> GetAll()
-        {
-            return _users;
-        }
-        public User? Get(int id)
-        {
-            return _users.SingleOrDefault(x => x.Id == id);
-        }
+        await _context.AddAsync(user, cancellationToken);
+        await _context.SaveChangesAsync(cancellationToken);
+        return user;
+    }
 
-        public User Add(User user)
-        {
-            user.Id = _users.Count + 1;
-            _users.Add(user);
-            return user;
-        }
+    public async Task<bool> UpdateAsync(int id, User user, CancellationToken cancellationToken = default)
+    {
+        var currentUser =await GetAsync(id, cancellationToken);
 
-        public bool Update(int id, User user)
-        {
-            var currentUser = Get(id);
+        if (currentUser is null)
+            return false;
 
-            if (currentUser is null)
-                return false;
+        currentUser.PhoneNumber = user.PhoneNumber;
+        currentUser.Name = user.Name;
+        currentUser.UserName = user.UserName;
+        currentUser.Password = user.Password;
+        currentUser.Email = user.Email;
+        currentUser.Location = user.Location;
 
-            currentUser.PhoneNumber = user.PhoneNumber;
-            currentUser.Name = user.Name;
-            currentUser.Password = user.Password;
-            currentUser.Email = user.Email;
-            currentUser.Location = user.Location;
-            return true;
-        }
+        await _context.SaveChangesAsync(cancellationToken);
+        return true;
+    }
 
-        public bool Delete(int id)
-        {
-            var User = Get(id);
+    public async Task<bool> DeleteAsync(int id, CancellationToken cancellationToken = default)
+    {
+        var User =await GetAsync(id, cancellationToken);
 
-            if (User is null)
-                return false;
+        if (User is null)
+            return false;
 
-            _users.Remove(User);
-            return true;
-        }
+        _context.Remove(User);
+
+        await _context.SaveChangesAsync(cancellationToken);
+        return true;
     }
 }

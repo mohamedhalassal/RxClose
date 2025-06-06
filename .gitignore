@@ -3,3 +3,14 @@
 ################################################################################
 
 /.vs/RxClose/v17
+/.vs
+/RxCloseAPI/RxCloseAPI/obj/Debug/net8.0/RxCloseAPI.AssemblyInfo.cs
+/RxCloseAPI/RxCloseAPI/obj/RxCloseAPI.csproj.nuget.g.props
+/RxCloseAPI/RxCloseAPI/obj/project.nuget.cache
+/RxCloseAPI/RxCloseAPI/obj/Debug/net8.0/RxCloseAPI.assets.cache
+/RxCloseAPI/RxCloseAPI/obj/RxCloseAPI.csproj.nuget.dgspec.json
+/RxCloseAPI/RxCloseAPI/obj/Debug/net8.0/RxCloseAPI.GeneratedMSBuildEditorConfig.editorconfig
+/RxCloseAPI/RxCloseAPI/obj/Debug/net8.0/RxCloseAPI.csproj.AssemblyReference.cache
+/RxCloseAPI/RxCloseAPI/obj/Debug/net8.0/RxCloseAPI.AssemblyInfoInputs.cache
+/RxCloseAPI/RxCloseAPI/obj/project.assets.json
+/RxCloseAPI/RxCloseAPI/obj/Debug/net8.0/RxCloseAPI.AssemblyInfo.cs

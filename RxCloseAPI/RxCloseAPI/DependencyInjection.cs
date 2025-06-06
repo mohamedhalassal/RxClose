@@ -1,10 +1,7 @@
 ﻿using MapsterMapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
-using RxCloseAPI.Authentication;
 using SharpGrip.FluentValidation.AutoValidation.Mvc.Extensions;
-using System.Reflection;
 using System.Text;
 
 namespace RxCloseAPI;
@@ -31,7 +28,7 @@ public static class DependencyInjection
         services.AddScoped<IAuthService, AuthService>();
         services.AddScoped<IPharmecyService, PharmecyService>();
 
-       
+
 
         return services;
     }
@@ -63,7 +60,7 @@ public static class DependencyInjection
     }
     private static IServiceCollection AddAuthConfig(this IServiceCollection services)
     {
-        services.AddSingleton<IJwtProvider, JwtProvider>(); 
+        services.AddSingleton<IJwtProvider, JwtProvider>();
 
         services.AddIdentity<User, IdentityRole>()
             .AddEntityFrameworkStores<RxCloseDbContext>();
@@ -83,8 +80,8 @@ public static class DependencyInjection
                     ValidateAudience = true,
                     ValidateLifetime = true,
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("yP5fNeueTtIgDSzDD6yQiCxCZ1fgaOly")),
-                    ValidIssuer= "RxCloseApp",
-                    ValidAudience= "RxCloseApp users"
+                    ValidIssuer = "RxCloseApp",
+                    ValidAudience = "RxCloseApp users"
                 };
             });
         return services;

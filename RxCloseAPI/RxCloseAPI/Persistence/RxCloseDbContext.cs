@@ -1,9 +1,6 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using System.Reflection;
+﻿namespace RxCloseAPI.Persistence;
 
-namespace RxCloseAPI.Persistence;
-
-public class RxCloseDbContext(DbContextOptions<RxCloseDbContext>options):
+public class RxCloseDbContext(DbContextOptions<RxCloseDbContext> options) :
     IdentityDbContext<User>(options)
 {
     public DbSet<Pharmecy> users { get; set; }

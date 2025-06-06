@@ -1,4 +1,4 @@
-﻿namespace RxCloseAPI.Conntracts.Pharmacies;
+﻿namespace RxCloseAPI.Contracts.Pharmacies;
 
 public record PharmacyResponse(
         int Id,

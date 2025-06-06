@@ -1,4 +1,4 @@
-﻿namespace RxCloseAPI.Conntracts.Authentication;
+﻿namespace RxCloseAPI.Contracts.Authentication;
 
 public record LoginRequest(
     string Email,

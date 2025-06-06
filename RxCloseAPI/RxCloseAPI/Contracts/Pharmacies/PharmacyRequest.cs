@@ -1,4 +1,4 @@
-﻿namespace RxCloseAPI.Conntracts.Pharmacies;
+﻿namespace RxCloseAPI.Contracts.Pharmacies;
 public record PharmacyRequest(
         int PhoneNumber,
         string Name,

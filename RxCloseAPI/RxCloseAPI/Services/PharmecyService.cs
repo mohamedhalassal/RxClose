@@ -1,12 +1,9 @@
-﻿
-using System.Threading;
-
-namespace RxCloseAPI.Services;
+﻿namespace RxCloseAPI.Services;
 
 public class PharmecyService(RxCloseDbContext context) : IPharmecyService
 {
     private readonly RxCloseDbContext _context = context;
-    public async Task<IEnumerable<Pharmecy>> GetAllAsync(CancellationToken cancellationToken = default) => 
+    public async Task<IEnumerable<Pharmecy>> GetAllAsync(CancellationToken cancellationToken = default) =>
         await _context.users.AsNoTracking().ToListAsync(cancellationToken);
 
     public async Task<Pharmecy?> GetAsync(int id, CancellationToken cancellationToken = default) =>
@@ -21,7 +18,7 @@ public class PharmecyService(RxCloseDbContext context) : IPharmecyService
 
     public async Task<bool> UpdateAsync(int id, Pharmecy user, CancellationToken cancellationToken = default)
     {
-        var currentUser =await GetAsync(id, cancellationToken);
+        var currentUser = await GetAsync(id, cancellationToken);
 
         if (currentUser is null)
             return false;
@@ -39,7 +36,7 @@ public class PharmecyService(RxCloseDbContext context) : IPharmecyService
 
     public async Task<bool> DeleteAsync(int id, CancellationToken cancellationToken = default)
     {
-        var User =await GetAsync(id, cancellationToken);
+        var User = await GetAsync(id, cancellationToken);
 
         if (User is null)
             return false;

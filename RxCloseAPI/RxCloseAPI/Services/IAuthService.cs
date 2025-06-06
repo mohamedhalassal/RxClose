@@ -1,5 +1,4 @@
-﻿
-namespace RxCloseAPI.Services
+﻿namespace RxCloseAPI.Services
 {
     public interface IAuthService
     {

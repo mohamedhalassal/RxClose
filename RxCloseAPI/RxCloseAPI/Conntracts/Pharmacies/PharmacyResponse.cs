@@ -1,5 +1,7 @@
-﻿namespace RxCloseAPI.Conntracts.Requests;
-public record UserRequest(
+﻿namespace RxCloseAPI.Conntracts.Pharmacies;
+
+public record PharmacyResponse(
+        int Id,
         int PhoneNumber,
         string Name,
         string UserName,

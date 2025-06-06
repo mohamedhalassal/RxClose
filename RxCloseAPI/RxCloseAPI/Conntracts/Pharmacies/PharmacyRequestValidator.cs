@@ -1,8 +1,8 @@
-﻿namespace RxCloseAPI.Conntracts.Validations;
+﻿namespace RxCloseAPI.Conntracts.Pharmacies;
 
-public class UserRequestValidator:AbstractValidator<UserRequest>
+public class LoginRequestValidator : AbstractValidator<PharmacyRequest>
 {
-    public UserRequestValidator()
+    public LoginRequestValidator()
     {
         RuleFor(x => x.Email)
             .NotEmpty();

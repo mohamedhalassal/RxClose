@@ -3,23 +3,23 @@ using System.Threading;
 
 namespace RxCloseAPI.Services;
 
-public class UserService(RxCloseDbContext context) : IUserService
+public class PharmecyService(RxCloseDbContext context) : IPharmecyService
 {
     private readonly RxCloseDbContext _context = context;
-    public async Task<IEnumerable<User>> GetAllAsync(CancellationToken cancellationToken = default) => 
+    public async Task<IEnumerable<Pharmecy>> GetAllAsync(CancellationToken cancellationToken = default) => 
         await _context.users.AsNoTracking().ToListAsync(cancellationToken);
 
-    public async Task<User?> GetAsync(int id, CancellationToken cancellationToken = default) =>
+    public async Task<Pharmecy?> GetAsync(int id, CancellationToken cancellationToken = default) =>
        await _context.users.FindAsync(id, cancellationToken);
 
-    public async Task<User> AddAsync(User user, CancellationToken cancellationToken = default)
+    public async Task<Pharmecy> AddAsync(Pharmecy user, CancellationToken cancellationToken = default)
     {
         await _context.AddAsync(user, cancellationToken);
         await _context.SaveChangesAsync(cancellationToken);
         return user;
     }
 
-    public async Task<bool> UpdateAsync(int id, User user, CancellationToken cancellationToken = default)
+    public async Task<bool> UpdateAsync(int id, Pharmecy user, CancellationToken cancellationToken = default)
     {
         var currentUser =await GetAsync(id, cancellationToken);
 

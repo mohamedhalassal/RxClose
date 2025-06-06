@@ -6,7 +6,7 @@ global using FluentValidation;
 
 global using RxCloseAPI.Entities;
 global using RxCloseAPI.Services;
-global using RxCloseAPI.Conntracts;
-global using RxCloseAPI.Conntracts.Requests;
-global using RxCloseAPI.Conntracts.Responses;
 global using RxCloseAPI.Persistence;
+global using RxCloseAPI.Conntracts.Pharmacies;
+global using RxCloseAPI.Conntracts.Authentication;
+

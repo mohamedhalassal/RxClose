@@ -4,8 +4,7 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
 {
     public void Configure(EntityTypeBuilder<User> builder)
     {
-        builder.HasIndex(x => x.UserName).IsUnique();
-
-        builder.Property(x => x.UserName).HasMaxLength(16);
+       builder.Property(x => x.FirstName).HasMaxLength(100);
+       builder.Property(x => x.LastName).HasMaxLength(100);
     }
 }

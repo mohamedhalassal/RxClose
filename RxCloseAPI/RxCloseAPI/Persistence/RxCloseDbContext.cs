@@ -1,10 +1,12 @@
-﻿using System.Reflection;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using System.Reflection;
 
 namespace RxCloseAPI.Persistence;
 
-public class RxCloseDbContext(DbContextOptions<RxCloseDbContext>options):DbContext(options)
+public class RxCloseDbContext(DbContextOptions<RxCloseDbContext>options):
+    IdentityDbContext<User>(options)
 {
-    public DbSet<User> users { get; set; }
+    public DbSet<Pharmecy> users { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

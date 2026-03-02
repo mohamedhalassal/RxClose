@@ -11,8 +11,8 @@ import os
 
 
 # Set the environment variables for Pinecone and Gemini API keys
-os.environ["PINECONE_API_KEY"] = "pcsk_29YpbD_SHWVCkHpPQMnuto42uEqyduYCM2D3SeUNV5guDWeMNrj71rZMASqzNr26EvisMJ"
-os.environ["GEMINI_API_KEY"] = "AIzaSyDD-JCNt-B99ZgKHGIc0ET-z5D8tCt3t6E"
+os.environ["PINECONE_API_KEY"] = ""
+os.environ["GEMINI_API_KEY"] = ""
 
 PINECONE_API_KEY = os.getenv("PINECONE_API_KEY")
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
